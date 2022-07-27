@@ -6,11 +6,7 @@ const smallImage = +image.width;
 const largeImage = smallImage * 1.2;
 
 function changeSize() {
-  if (image.width === smallImage) {
-    image.width = largeImage;
-  } else if (image.width === largeImage) {
-    image.width = smallImage;
-  }
+  image.width = image.width === smallImage ? largeImage : smallImage;
   clickCounter.textContent = counter++;
 };
 
