@@ -1,6 +1,8 @@
 const sliderArray = Array.from(document.getElementsByClassName("slider__item"));
 const dotsArray = Array.from(document.getElementsByClassName("slider__dot"));
 
+console.log(dotsArray);
+
 let currentImageIndex, nextImageIndex, prevImageIndex;
 
 function getImageIndexes() {
@@ -21,6 +23,12 @@ function switchToPrev() {
   sliderArray[prevImageIndex].classList.add("slider__item_active");
 }
 
+// function switchToDot(index) {
+//   getImageIndexes();
+//   sliderArray[currentImageIndex].classList.remove("slider__item_active");
+//   sliderArray[index].classList.add("slider__item_active");
+// }
+
 const nextArrow = document.getElementsByClassName("slider__arrow_next")[0];
 const prevArrow = document.getElementsByClassName("slider__arrow_prev")[0];
 nextArrow.onclick = switchToNext;
@@ -32,5 +40,7 @@ for (i = 0; i < dotsArray.length; i++) {
     getImageIndexes();
     sliderArray[currentImageIndex].classList.remove("slider__item_active");
     sliderArray[index].classList.add("slider__item_active");
+    console.log(currentImageIndex)
   };
 }
+console.log(dotsArray);
