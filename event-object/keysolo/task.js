@@ -4,6 +4,9 @@ class Game {
     this.wordElement = container.querySelector('.word');
     this.winsElement = container.querySelector('.status__wins');
     this.lossElement = container.querySelector('.status__loss');
+    
+    this.timeElement = container.querySelector('.status__timer')
+    this.countdownTimer;
 
     this.reset();
 
@@ -17,9 +20,8 @@ class Game {
   }
 
   registerEvents() {
-    console.log(this.currentSymbol.textContent)
     document.addEventListener('keyup', event => {
-      event.key === this.currentSymbol.textContent ? this.success() : this.fail()
+      event.key.toLowerCase() === this.currentSymbol.textContent.toLowerCase() ? this.success() : this.fail()
     })
   }
 
@@ -32,16 +34,20 @@ class Game {
 
     if (++this.winsElement.textContent === 10) {
       alert('Победа!');
+      clearInterval(this.countdownTimer)
       this.reset();
     }
+    clearInterval(this.countdownTimer)
     this.setNewWord();
   }
 
   fail() {
     if (++this.lossElement.textContent === 5) {
       alert('Вы проиграли!');
+      clearInterval(this.countdownTimer)
       this.reset();
     }
+    clearInterval(this.countdownTimer);
     this.setNewWord();
   }
 
@@ -49,6 +55,11 @@ class Game {
     const word = this.getWord();
 
     this.renderWord(word);
+
+    this.countdown(word.length)
+
+    this.timeElement.textContent = word.length;
+    
   }
 
   getWord() {
@@ -80,6 +91,16 @@ class Game {
     this.wordElement.innerHTML = html;
 
     this.currentSymbol = this.wordElement.querySelector('.symbol_current');
+  }
+
+  countdown(initialValue) {
+    this.countdownTimer = setInterval(() => {
+      this.timeElement.textContent = --initialValue;
+      if (initialValue === 0) {
+        this.fail();
+      }
+    }, 1000)
+    
   }
 }
 
