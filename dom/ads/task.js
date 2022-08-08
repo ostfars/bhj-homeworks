@@ -4,7 +4,6 @@ const rotatorsCases = [];
 
 for (let i = 0; i < allRotators.length; i++) {
   rotatorsCases.push(Array.from(allRotators[i].querySelectorAll('.rotator__case')));
-  console.log(allRotators[i].querySelector(".rotator__case_active"))
 }
 
 setInterval(() => {
