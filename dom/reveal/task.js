@@ -1,7 +1,7 @@
 const appearingBlocks = Array.from(document.querySelectorAll(".reveal"));
 
 document.addEventListener('scroll', () => {
-  for (i = 0; i < appearingBlocks.length; i++) {
+  for (let i = 0; i < appearingBlocks.length; i++) {
     const {top, bottom} = appearingBlocks[i].getBoundingClientRect();
     if (bottom > 0 && top < window.innerHeight) {
       console.log('true')
@@ -12,16 +12,3 @@ document.addEventListener('scroll', () => {
     }
   }
 })
-
-// вариант 2
-
-// const getPosition = setInterval(() => {
-//   for (i = 0; i < appearingBlocks.length; i++) {
-//     const {top, bottom} = appearingBlocks[i].getBoundingClientRect();
-//     if (bottom > 0 && top < window.innerHeight) {
-//       appearingBlocks[i].classList.add("reveal_active")
-//     } else {
-//       appearingBlocks[i].classList.remove("reveal_active")
-//     }
-//   }
-// }, 1000)

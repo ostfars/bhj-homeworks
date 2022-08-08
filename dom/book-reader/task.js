@@ -2,7 +2,7 @@ const fontSizes = document.querySelectorAll('.font-size');
 const currentBook = document.getElementById('book')
 
 function setFontSize() {
-  for (i = 0; i < fontSizes.length; i++) {
+  for (let i = 0; i < fontSizes.length; i++) {
     fontSizes[i].classList.remove('font-size_active')
   };
   book.classList.remove("book_fs-small", "book_fs-big");
@@ -18,6 +18,6 @@ function setFontSize() {
   return false
 }
 
-for (i = 0; i < fontSizes.length; i++) {
+for (let i = 0; i < fontSizes.length; i++) {
   fontSizes[i].onclick = setFontSize
 }
