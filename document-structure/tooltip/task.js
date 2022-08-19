@@ -12,7 +12,7 @@ tooltips.forEach(tip => {
     event.preventDefault();
 
     tipPosition = tip.getBoundingClientRect();
-    tip.nextSibling.setAttribute('style', `left: ${tipPosition.left}px;`)
+    tip.nextSibling.setAttribute('style', `position: absolute; left: ${tipPosition.left}px;`)
     
     if (document.querySelector('.tooltip_active')) {
       document.querySelector('.tooltip_active').classList.remove(('tooltip_active'));
