@@ -19,8 +19,6 @@ tooltips.forEach(tip => {
     }
 
     tip.nextSibling.classList.add('tooltip_active');
-
-    console.log(tipPosition)
   })
 })
 
