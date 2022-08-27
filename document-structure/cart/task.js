@@ -11,7 +11,6 @@ selectProductQuantity = (item) => {
   const productImage = item.querySelector(".product__image").src;
   const productControls = item.querySelector(".product__controls");
   const quantity = item.querySelector(".product__quantity-value");
-  const quantityControls = item.querySelectorAll(".product__quantity-control");
   const quantityIncrease = item.querySelector(".product__quantity-control_inc");
   const quantityDecrease = item.querySelector(".product__quantity-control_dec");
   const addButton = productControls.querySelector(".product__add")
@@ -21,7 +20,7 @@ selectProductQuantity = (item) => {
   })
   quantityDecrease.addEventListener('click', e => {
     if (quantity.textContent > 1) {
-      quantity.innerHTML = quantity.textContent - 1;
+      quantity.innerHTML = +quantity.textContent - 1;
     }
   });
 
@@ -39,7 +38,7 @@ selectProductQuantity = (item) => {
     if (document.getElementById(cartItemId)) {
       const element = document.getElementById(cartItemId);
       const initialQuantity = element.querySelector(".cart__product-count").textContent;
-      element.querySelector(".cart__product-count").innerHTML += quantity.textContent;
+      element.querySelector(".cart__product-count").innerHTML = +quantity.textContent + +element.querySelector(".cart__product-count").textContent;
     } else {
       cart.appendChild(div);
     }
