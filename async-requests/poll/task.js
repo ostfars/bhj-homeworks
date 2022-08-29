@@ -23,8 +23,6 @@ xhr.addEventListener('readystatechange', () => {
       })
 
       pollAnswers.appendChild(button);
-
-      console.log(answer)
     }
   }
 });
