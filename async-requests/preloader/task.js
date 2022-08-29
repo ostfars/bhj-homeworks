@@ -3,7 +3,6 @@ xhr.addEventListener('readystatechange', () => {
   if (xhr.readyState === xhr.DONE) {
     document.querySelector('.loader').classList.remove('loader_active')
     const exchangeRates = JSON.parse(xhr.responseText)['response']['Valute'];
-    const result = [];
     const items = document.getElementById("items")
 
     for (let item in exchangeRates) {
